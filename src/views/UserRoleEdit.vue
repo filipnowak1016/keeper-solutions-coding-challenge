@@ -102,8 +102,8 @@ export default {
           this.item.lastUpdate = moment().format('DD/MM/YYYY')
           this.updateRole(this.item)
         } else {
-          console.log(this.item)
-          this.addRole(this.item)
+          const id = Math.max(...this.getAllRoles.map(item => item.id)) + 1
+          this.addRole({ ...this.item, id })
         }
         this.snackbar = true
       }
