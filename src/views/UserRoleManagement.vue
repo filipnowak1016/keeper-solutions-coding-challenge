@@ -52,7 +52,7 @@ export default {
     items() {
       let roles = this.getAllRoles
       if (this.search) {
-        roles = roles.filter(role => role.name.toLowerCase().includes(this.search))
+        roles = roles.filter(role => role.name.toLowerCase().includes(this.search.toLowerCase()))
       }
       if (this.filter === 'Active') {
         roles = roles.filter(role => role.active)
