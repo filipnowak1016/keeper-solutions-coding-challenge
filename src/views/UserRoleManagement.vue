@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import UserRoleItem from './UserRoleItem.vue';
+import { mapGetters } from 'vuex'
+import UserRoleItem from './UserRoleItem.vue'
 
 export default {
   name: 'UserRoleManagement',
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     items() {
-      let roles = this.getAllRoles;
+      let roles = this.getAllRoles
       if (this.search) {
         roles = roles.filter(role => role.name.toLowerCase().includes(this.search))
       }
@@ -60,7 +60,7 @@ export default {
       if (this.filter === 'Inactive') {
         roles = roles.filter(role => !role.active)
       }
-      return roles;
+      return roles
     },
     ...mapGetters(['getAllRoles'])
   },

@@ -71,9 +71,8 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex';
-import { find } from 'lodash';
-import moment from 'moment';
+import { mapMutations, mapGetters } from 'vuex'
+import moment from 'moment'
 
 export default {
   computed: {
@@ -97,21 +96,22 @@ export default {
       this.$router.push({ name: 'UserRoleManagement' })
     },
     submit() {
-      this.$refs.userRoleForm.validate();
+      this.$refs.userRoleForm.validate()
       if (this.valid) {
         if (this.item.id) {
-          this.item.lastUpdate = moment().format('DD/MM/YYYY');
-          this.updateRole(this.item);
+          this.item.lastUpdate = moment().format('DD/MM/YYYY')
+          this.updateRole(this.item)
         } else {
-          this.addRole(this.item);
+          console.log(this.item)
+          this.addRole(this.item)
         }
-        this.snackbar = true;
+        this.snackbar = true
       }
     },
     ...mapMutations(['addRole', 'updateRole'])
   },
   mounted() {
-    const { id } = this.$route.params;
+    const { id } = this.$route.params
     if (id) {
       this.item = this.getAllRoles.find(item => item.id == id)
     }
